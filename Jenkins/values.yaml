@@ -8,11 +8,11 @@ jenkins:
     # ... các cấu hình resources, serviceType giữ nguyên ...
     resources:
       requests:
-        cpu: "500m"
-        memory: "1024Mi"
+        cpu: "200m"
+        memory: "512Mi"
       limits:
         cpu: "1000m"
-        memory: "2048Mi"
+        memory: "1536Mi"
     serviceType: NodePort
     nodePort: 30000
     
