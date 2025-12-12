@@ -1,7 +1,7 @@
 jenkins:
   controller:
     image: "jenkins/jenkins"
-    tag: "jdk21"
+    tag: "lts-jdk21"
     resources:
       requests:
         cpu: "500m"
@@ -9,8 +9,8 @@ jenkins:
       limits:
         cpu: "1000m"
         memory: "2048Mi"
-    serviceType: Nodeport
-    Nodeport: 30000
+    serviceType: NodePort
+    nodePort: 30000
     persistence:
       enabled: true
       size: "8Gi"
