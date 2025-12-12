@@ -1,10 +1,8 @@
 apiVersion: v2
-name: jenkins
-description: Jenkins deployment for argocd
-type: application
-version: 1.0.1
-appVersion: "lts-jdk21"
+name: my-jenkins-wrapper
+version: 1.0.0
 dependencies:
   - name: jenkins
-    version: "5.8.14"
-    repository: "https://charts.jenkins.io"
+    condition: jenkins.enabled
+    repository: https://charts.jenkins.io
+    version: "5.8.3"

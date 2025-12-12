@@ -1,6 +1,6 @@
 controller:
   image: "jenkins/jenkins"
-  tag: "lts-jdk21"
+  tag: "lts"
   resources:
     requests:
       cpu: "500m"
@@ -16,7 +16,6 @@ controller:
     storageClass: ""
   installLatestPlugins: false
   overwritePlugins: true
-  
   installPlugins:
     - configuration-as-code:1963.v24e046127a_3f
     - git-client:6.4.1
