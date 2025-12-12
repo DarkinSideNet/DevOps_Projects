@@ -15,6 +15,8 @@ controller:
     enabled: true
     size: "8Gi"
     storageClass: ""
+  installLatestPlugins: false
+  overwritePlugins: true
   
   installPlugins:
     - configuration-as-code:1963.v24e046127a_3f
