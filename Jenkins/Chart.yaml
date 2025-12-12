@@ -1,10 +1,10 @@
 apiVersion: V2
 name: jenkins
-description: A Helm chart for Jenkins deployment for argocd
+description: Jenkins deployment for argocd
 type: application
-version: 1.0.0
-appVersion: "2.479.1-jdk17"
+version: 1.0.1
+appVersion: "2.528.2-jdk17"
 dependencies:
   - name: jenkins
-    version: "5.8.108"
+    version: "5.8.14"
     repository: "https://charts.jenkins.io"
