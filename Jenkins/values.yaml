@@ -19,17 +19,25 @@ jenkins:
     installLatestPlugins: false
     overwritePlugins: true
     installPlugins:
+# --- CÁC PLUGIN CẦN THIẾT (CORE) ---
       - configuration-as-code:1985.vdda_32d0c4ea_b_
-      
-      # Các plugin bạn cần
-      - git-client:6.4.1
-      - git:5.7.0  # (Nên dùng 5.7.0 đi kèm với git-client mới)
-      
-      # Các plugin cốt lõi khác (Tôi đã update version mới nhất để fix lỗi bảo mật)
-      - workflow-aggregator:600.vb_57cdd26fdd7
       - kubernetes:4306.vc91e951ea_eb_d
-      - workflow-job:1549.vc8d7f497b_22f       # Fix lỗi security
-      - credentials-binding:681.vf91669a_32e45
+      - workflow-aggregator:600.vb_57cdd26fdd7
+      - job-dsl:1.87
+      
+      # --- CẶP PLUGIN GIT (NGUYÊN NHÂN GÂY LỖI) ---
+      - git:5.7.0
+      - git-client:6.4.1
+      
+      # --- ĐÂY LÀ DÒNG FIX LỖI ---
+      # Phải nâng lên bản 687... để thỏa mãn yêu cầu của git:5.7.0
+      - credentials-binding:687.v619cb_15e923f
+      
+      # --- FIX CÁC LỖI BẢO MẬT (SECURITY WARNINGS) ---
+      # Nâng cấp các gói này để hết báo vàng
+      - jakarta-mail-api:2.1.3-1
+      - pipeline-model-definition:2.2214.vb_b_34b_2ea_9b_83
+      - workflow-cps:3990.v2b_84a_5e96b_10
       
     JCasC:
       defaultConfig: true
