@@ -16,6 +16,8 @@ jenkins:
     overwritePlugins: true
     installPlugins:
       - configuration-as-code:1963.v24e046127a_3f
+      - git-client:6.4.1
+      - git:5.6.0
       - workflow-aggregator:600.vb_57cdd26fdd7
       - kubernetes:4306.vc91e951ea_eb_d
     JCasC:
@@ -24,7 +26,6 @@ jenkins:
         welcome-message: |
           jenkins:
             systemMessage: "welcome to Jenkins"
-
   persistence: 
     enabled: true
     size: "8Gi"
