@@ -15,7 +15,9 @@ jenkins:
     installLatestPlugins: false
     overwritePlugins: true
     installPlugins:
-      - configuration-as-code
+      - configuration-as-code:1963.v24e046127a_3f
+      - workflow-aggregator:600.vb_57cdd26fdd7
+      - kubernetes:4306.vc91e951ea_eb_d
     JCasC:
       defaultConfig: true
       configScripts:
