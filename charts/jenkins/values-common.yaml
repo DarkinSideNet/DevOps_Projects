@@ -39,10 +39,10 @@ jenkins:
     resources:
       requests:
         cpu: "500m"
-        memory: "1024Mi"
+        memory: "2648Mi"
       limits:
         cpu: "1000m"
-        memory: "1536Mi"
+        memory: "5296Mi"
     serviceType: NodePort
     nodePort: 30000
     
