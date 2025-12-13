@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    name: https://kubernetes.default.svc
+    name: in-cluster
     namespace: jenkins
   project: default
   source:
