@@ -15,7 +15,7 @@ spec:
     helm:
       realeaseName: jenkins-server
       valuesFiles:
-        - values-common.yaml
+        - values.yaml
         - values-prod.yaml
   syncPolicy:
     # automated:

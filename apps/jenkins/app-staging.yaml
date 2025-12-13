@@ -30,7 +30,7 @@ spec:
         helm:
           realeaseName: jenkins-staging
           valuesFiles:
-            - values-common.yaml
+            - values.yaml
             - values-staging.yaml
       destination:
         name: in-cluster
