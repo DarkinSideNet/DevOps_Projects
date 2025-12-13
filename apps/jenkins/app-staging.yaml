@@ -33,7 +33,7 @@ spec:
             - values-common.yaml
             - values-staging.yaml
       destination:
-        name: https://kubernetes.default.svc
+        name: in-cluster
         namespace: jenkins-staging
   syncPolicy:
     # automated:
