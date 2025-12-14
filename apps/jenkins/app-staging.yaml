@@ -11,7 +11,7 @@ spec:
         github:
           owner: DarkinSideNet
           repo: DevOps_Projects
-          api: https://github.com
+          api: https://api.github.com
           labels:
           - jenkis-deploy-staging
           # tokenRef:
@@ -20,7 +20,7 @@ spec:
         requeueAfterSeconds: 1800 # 30 minutes
   template:
     metadata:
-      name: jenkins-staging-{.number}}
+      name: jenkins-staging-{.number}
     spec:
       project: default
       source:
@@ -28,7 +28,7 @@ spec:
         targetRevision: '{{.head_sha}}'
         path: charts/jenkins
         helm:
-          realeaseName: jenkins-staging
+          releaseName: jenkins-staging
           valuesFiles:
             - values.yaml
             - values-staging.yaml
