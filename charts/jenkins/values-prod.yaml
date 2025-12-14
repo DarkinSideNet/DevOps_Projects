@@ -1,5 +1,6 @@
 jenkins:
   persistence:
+    enabled: false
     size: "8Gi"
     existingClaim: jenkins-server
   controller:
