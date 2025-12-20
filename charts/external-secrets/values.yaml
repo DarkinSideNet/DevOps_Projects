@@ -1,28 +1,10 @@
-# Default values for external-secrets chart
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+# Default values for external-secrets configuration
+# This chart only creates ClusterSecretStore
+# The operator should be installed separately
 
-# Configuration for custom ClusterSecretStore template
 clusterSecretStore:
   name: aws-secrets-manager
   region: us-east-1
   serviceAccount:
     name: external-secrets
     namespace: external-secrets
-
-# Configuration for external-secrets dependency chart
-external-secrets:
-  installCRDs: true
-  serviceAccount:
-    create: true
-    name: external-secrets
-    annotations: {}
-  # Ensure the webhook also uses the same service account
-  webhook:
-    serviceAccount:
-      create: false
-      name: external-secrets
-  certController:
-    serviceAccount:
-      create: false
-      name: external-secrets

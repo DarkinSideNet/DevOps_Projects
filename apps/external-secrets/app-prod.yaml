@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: external-secrets
+  name: external-secrets-config
   namespace: argocd
 spec:
   project: default
@@ -10,15 +10,15 @@ spec:
     repoURL: https://github.com/DarkinSideNet/DevOps_Projects.git
     targetRevision: main
     helm:
-      releaseName: external-secrets
+      releaseName: external-secrets-config
       valuesFiles:
         - values-prod.yaml
   destination:
     name: in-cluster
     namespace: external-secrets
   syncPolicy:
-    # automated:
-    #   prune: true
-    #   selfHeal: true
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
