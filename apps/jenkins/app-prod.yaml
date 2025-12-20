@@ -10,12 +10,12 @@ spec:
   project: default
   source:
     repoURL: https://github.com/DarkinSideNet/DevOps_Projects.git
-    targetRevision: HEAD
+    targetRevision: main
     path: charts/jenkins
     helm:
-      realeaseName: jenkins-server
+      releaseName: jenkins-server
       valuesFiles:
-        - values-common.yaml
+        - values.yaml
         - values-prod.yaml
   syncPolicy:
     # automated:
