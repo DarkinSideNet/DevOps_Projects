@@ -1,14 +1,10 @@
 externalSecrets:
-  enabled: true
-  secretPath: "jenkins/production/admin"
+  # enabled: true
+  # secretPath: "jenkins/production/admin"
 
   github:
     enabled: true
     secretPath: "jenkins/production/github/oauth"
-
-  sshEks:
-    enabled: true
-    secretPath: "jenkins/production/ssh/eks"
 
 
 jenkins:
