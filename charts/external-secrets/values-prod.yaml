@@ -1,13 +1,13 @@
-clusterSecretStore:
-  name: aws-secrets-manager
-  region: us-east-1
-  serviceAccount:
-    name: external-secrets
-    namespace: external-secrets
+external-secrets:
+  clusterSecretStore:
+    name: aws-secrets-manager
+    region: us-east-1
+    serviceAccount:
+      name: external-secrets
+      namespace: external-secrets
 
-serviceAccount:
-  create: true
-  name: external-secrets
-  namespace: external-secrets
-  annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::459063349398:role/ExternalSecretsRole
+  serviceAccount:
+    create: true
+    name: external-secrets
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::459063349398:role/ExternalSecretsRole
