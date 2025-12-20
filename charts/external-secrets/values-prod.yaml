@@ -1,10 +1,9 @@
 clusterSecretStore:
   name: aws-secrets-manager
-
-aws:
   region: us-east-1
-  serviceAccountName: external-secrets
-  serviceAccountNamespace: external-secrets
+  serviceAccount:
+    name: external-secrets
+    namespace: external-secrets
 
 serviceAccount:
   create: true
