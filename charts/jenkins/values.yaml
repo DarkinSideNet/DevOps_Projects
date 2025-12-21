@@ -75,12 +75,8 @@ jenkins:
         security: |
           jenkins:
             securityRealm:
-              github:
-                githubWebUri: "https://github.com"
-                githubApiUri: "https://api.github.com"
-                clientID: "Ov23limMHZ2rzzwTJAvv"
-                clientSecret: "d896fb2d7403b917b53d21fddf77b63e30b28d5f"
-                oauthScopes: "read:org,user:email"
+              local:
+                allowsSignup: false
         credentials-config: |
           credentials:
             system:
