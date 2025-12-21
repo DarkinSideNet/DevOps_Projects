@@ -66,6 +66,7 @@ jenkins:
     # NOTE: configScripts is an object/map, so it MERGES with values.yaml
     # Keys defined here will override keys in values.yaml
     JCasC:
+      defaultConfig: true  # Enable JCasC to apply the configurations
       configScripts:
         # Override welcome message for staging
         welcome-message: |
