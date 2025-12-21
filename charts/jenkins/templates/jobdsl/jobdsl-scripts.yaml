@@ -1,16 +1,10 @@
-{{- if .Values.jenkins.jobdsls }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: jobdsl-scripts
   namespace: {{ .Release.Namespace }}
-  labels:
-    app: jenkins
-    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    release: {{ .Release.Name }}
 data:
   {{- range .Values.jenkins.jobdsls }}
   {{ .name }}.groovy: |
-{{ .script | indent 4 }}
+  {{ $.Files.Get .file | nindent 4 }}
   {{- end }}
-{{- end }}
