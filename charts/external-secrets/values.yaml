@@ -1,26 +1,10 @@
-# Default values for external-secrets
-# Includes both operator and ClusterSecretStore configuration
+# Default values for external-secrets configuration
+# This chart only creates ClusterSecretStore
+# The operator should be installed separately
 
-# Configuration for ClusterSecretStore
 clusterSecretStore:
   name: aws-secrets-manager
   region: us-east-1
   serviceAccount:
     name: external-secrets
     namespace: external-secrets
-
-# Configuration for external-secrets operator (dependency)
-operator:
-  installCRDs: true
-  serviceAccount:
-    create: true
-    name: external-secrets
-    annotations: {}
-  webhook:
-    serviceAccount:
-      create: false
-      name: external-secrets
-  certController:
-    serviceAccount:
-      create: false
-      name: external-secrets

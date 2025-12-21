@@ -4,8 +4,3 @@ clusterSecretStore:
   serviceAccount:
     name: external-secrets
     namespace: external-secrets
-
-operator:
-  serviceAccount:
-    annotations:
-      eks.amazonaws.com/role-arn: arn:aws:iam::459063349398:role/ExternalSecretsRole
