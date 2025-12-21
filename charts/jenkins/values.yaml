@@ -16,9 +16,6 @@ externalSecrets:
     enabled: true
     secretPath: "jenkins/aws/access" 
 
-  default:
-    enabled: true
-    secretPath: "jenkins/default/admin"
 
 jenkins:
   jobdsls: []
@@ -60,16 +57,6 @@ jenkins:
         fi
 
     env:
-      - name: JENKINS_ADMIN_ID
-        valueFrom:
-          secretKeyRef:
-            name: jenkins-server
-            key: jenkins-admin-user
-      - name: JENKINS_ADMIN_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: jenkins-server
-            key: jenkins-admin-password
       - name: AWS_ACCESS_KEY
         valueFrom:
           secretKeyRef:
@@ -94,19 +81,6 @@ jenkins:
           jenkins:
             systemMessage: "Welcome to Jenkins Server"
 
-        base-security: |
-          jenkins:
-            securityRealm:
-              local:
-                allowsSignup: false
-                users:
-                  - id: ${JENKINS_ADMIN_ID}
-                    password: ${JENKINS_ADMIN_PASSWORD}
-
-            authorizationStrategy:
-              loggedInUsersCanDoAnything:
-                allowAnonymousRead: false
-        
         credentials-config: |
           credentials:
             system:
