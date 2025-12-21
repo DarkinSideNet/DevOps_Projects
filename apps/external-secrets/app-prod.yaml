@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: external-secrets-config
+  name: external-secrets
   namespace: argocd
 spec:
   project: default
@@ -10,7 +10,7 @@ spec:
     repoURL: https://github.com/DarkinSideNet/DevOps_Projects.git
     targetRevision: main
     helm:
-      releaseName: external-secrets-config
+      releaseName: external-secrets
       valuesFiles:
         - values-prod.yaml
   destination:
