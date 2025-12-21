@@ -27,9 +27,7 @@ jenkins:
 
     JCasC:
       configScripts:
-        welcome-message: |
-          jenkins:
-            systemMessage: "Welcome to Jenkins Staging Server"
+        # Quan trọng: Gộp security vào 1 block để tránh lỗi override
         security: |
           jenkins:
             securityRealm:
@@ -41,29 +39,13 @@ jenkins:
                 oauthScopes: "read:org,user:email"
             authorizationStrategy:
               github:
-                allowAnonymousRead: false
+                adminUserNames: "Lynrbe"
                 authenticatedUserReadPermission: true
+                allowAnonymousRead: false
                 allowAnonymousJobStatusPermission: false
                 allowCcTrayPermission: false
-                allowGithubWebHookPermission: false
-                adminUserNames: "Lynrbe"
-
-        credentials-config: |
-          credentials:
-            system:
-              domainCredentials:
-                - credentials:
-                    - basicSSHUserPrivateKey:
-                        scope: GLOBAL
-                        id: "ssh-eks-key"
-                        description: "SSH key for EKS access"
-                        username: "${SSH_USERNAME}"
-                        privateKeySource:
-                          directEntry:
-                            privateKey: "${SSH_PRIVATE_KEY}"
-                    - aws:
-                        scope: GLOBAL
-                        id: "aws-credentials"
-                        description: "AWS Access Credentials"
-                        accessKey: "${AWS_ACCESS_KEY}"
-                        secretKey: "${AWS_SECRET_KEY}"
+                allowGithubWebHookPermission: true
+        
+        welcome-message: |
+          jenkins:
+            systemMessage: "Welcome to Jenkins Staging Server"

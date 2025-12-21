@@ -1,29 +1,19 @@
 externalSecrets:
-  # External secrets are disabled by default
-  # Override in values-prod.yaml or values-staging.yaml to enable
-  # enabled: false
-  # secretPath: "jenkins/ENVIRONMENT/admin"  # Replace ENVIRONMENT with staging/production
-
   github:
     enabled: true
-    secretPath: "jenkins/staging/github/oauth"  # Replace ENVIRONMENT with staging/production
-
+    secretPath: "jenkins/staging/github/oauth"
   sshEks:
     enabled: true
-    secretPath: "jenkins/ssh/eks" 
-
+    secretPath: "jenkins/ssh/eks"
   awsAccess:
     enabled: true
-    secretPath: "jenkins/aws/access" 
-    
+    secretPath: "jenkins/aws/access"
   default:
     enabled: true
     secretPath: "jenkins/default/admin"
 
-
 jenkins:
   jobdsls: []
-
   persistence:
     storageClass: gp3
     volumes:
@@ -39,26 +29,8 @@ jenkins:
       registry: "docker.io"
       repository: "jenkins/jenkins"
       tag: "lts-jdk21"
-    # Install AWS CLI in Jenkins container
-    initContainerEnv:
-      - name: INSTALL_AWS_CLI
-        value: "true"
-
-    initScripts:
-      install-aws-cli: |
-        #!/bin/bash
-        if [ "$INSTALL_AWS_CLI" = "true" ]; then
-          echo "Installing AWS CLI..."
-          cd /tmp
-          apt-get update && apt-get install -y curl unzip
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip -q awscliv2.zip
-          ./aws/install
-          rm -rf aws awscliv2.zip
-          echo "AWS CLI installed successfully"
-          aws --version
-        fi
-
+    
+    # Gỡ bỏ initScripts gây lỗi Groovy, thay bằng env để container tự hiểu
     env:
       - name: AWS_ACCESS_KEY
         valueFrom:
@@ -81,16 +53,14 @@ jenkins:
             name: jenkins-ssh-eks-credential
             key: privateKey
 
-    javaOpts: >-
-      -Djenkins.install.runSetupWizard=false
+    javaOpts: "-Djenkins.install.runSetupWizard=false"
 
+    # Cấu hình JCasC cơ bản
     JCasC:
       configScripts:
-
         welcome-message: |
           jenkins:
             systemMessage: "Welcome to Jenkins Server"
-
         credentials-config: |
           credentials:
             system:
