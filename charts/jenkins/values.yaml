@@ -64,6 +64,7 @@ jenkins:
         valueFrom:
           secretKeyRef:
             name: jenkins-server
+            userKey: jenkins-admin-user
             key: jenkins-admin-password
       - name: AWS_ACCESS_KEY
         valueFrom:
@@ -75,6 +76,10 @@ jenkins:
           secretKeyRef:
             name: jenkins-aws-access-credential
             key: awsSecretKey
+    
+    controller:
+      javaOpts: >-
+        -Djenkins.install.runSetupWizard=false
 
 
     JCasC:
