@@ -24,19 +24,3 @@ jenkins:
           secretKeyRef:
             name: jenkins-staging-github-oauth-secret
             key: clientSecret
-
-    JCasC:
-      configScripts:
-        security: |
-          jenkins:
-            securityRealm:
-              github:
-                githubWebUri: "https://github.com"
-                githubApiUri: "https://api.github.com"
-                clientID: "${GITHUB_CLIENT_ID}"
-                clientSecret: "${GITHUB_CLIENT_SECRET}"
-                oauthScopes: "read:org,user:email"
-        
-        welcome-message: |
-          jenkins:
-            systemMessage: "Welcome to Jenkins Staging Server"
