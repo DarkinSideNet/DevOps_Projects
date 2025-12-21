@@ -155,7 +155,7 @@ jenkins:
       - jakarta-activation-api:2.1.4-1
       - jakarta-mail-api:2.1.5-1
       - javax-activation-api:1.2.0-7
-      - jaxb:2.3.9-1
+      - jaxb:2.3.9-133.vb_ec76a_73f706
       - job-dsl:1.93
       - joda-time-api:2.14.0-149.v1c3ce991d1b_9
       - json-api:20250517-173.v596efb_962a_31
