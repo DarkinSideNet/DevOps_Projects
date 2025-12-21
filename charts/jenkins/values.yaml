@@ -24,6 +24,7 @@ jenkins:
   jobdsls: []
 
   persistence:
+    storageClass: gp3
     volumes:
       - name: jobdsl-scripts
         configMap:
