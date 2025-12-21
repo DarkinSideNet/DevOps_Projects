@@ -15,10 +15,6 @@ jenkins:
     jenkinsUrlProtocol: https
     jenkinsUrl: https://jenkins-staging.neikoscloud.net
 
-    # Use different NodePort than production (30000)
-    serviceType: NodePort
-    nodePort: 30001
-
     JCasC:
       configScripts:
 

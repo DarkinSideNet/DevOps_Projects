@@ -80,8 +80,8 @@ jenkins:
         cpu: "1000m"
         memory: "5296Mi"
 
-    serviceType: NodePort
-    nodePort: 30000
+    # Use ClusterIP since we're using Traefik Ingress (not NodePort)
+    serviceType: ClusterIP
 
     installLatestPlugins: false
     overwritePlugins: true
