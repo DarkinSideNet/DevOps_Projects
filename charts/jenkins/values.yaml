@@ -24,7 +24,6 @@ jenkins:
   jobdsls: []
 
   persistence:
-    enabled: false
     volumes:
       - name: jobdsl-scripts
         configMap:
@@ -60,11 +59,15 @@ jenkins:
         fi
 
     env:
+      - name: JENKINS_ADMIN_ID
+        valueFrom:
+          secretKeyRef:
+            name: jenkins-server
+            key: jenkins-admin-user
       - name: JENKINS_ADMIN_PASSWORD
         valueFrom:
           secretKeyRef:
             name: jenkins-server
-            userKey: jenkins-admin-user
             key: jenkins-admin-password
       - name: AWS_ACCESS_KEY
         valueFrom:
@@ -96,7 +99,7 @@ jenkins:
               local:
                 allowsSignup: false
                 users:
-                  - id: admin
+                  - id: ${JENKINS_ADMIN_ID}
                     password: ${JENKINS_ADMIN_PASSWORD}
 
             authorizationStrategy:
