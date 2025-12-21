@@ -13,13 +13,14 @@ jenkins:
     jenkinsUrlProtocol: https
     jenkinsUrl: https://jenkins-staging.neikoscloud.net
 
-    additionalExistingSecrets:
+    additionalSecrets:
       - name: jenkins-staging-github-oauth-secret
-        keyName: clientId
-      - name: jenkins-staging-github-oauth-secret
-        keyName: clientSecret
+        value: ""
 
     JCasC:
+      secrets:
+        jenkins-staging-github-oauth-secret: jenkins-staging-github-oauth-secret
+
       configScripts:
 
         welcome-message: |
