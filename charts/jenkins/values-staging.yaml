@@ -1,14 +1,4 @@
 externalSecrets:
-  default:
-    enabled: false
-
-  sshEks:
-    enabled: true
-    secretPath: "jenkins/ssh/eks"
-
-  awsAccess:
-    enabled: true
-    secretPath: "jenkins/aws/access"
 
   github:
     enabled: true
