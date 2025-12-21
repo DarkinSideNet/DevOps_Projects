@@ -13,7 +13,7 @@ jenkins:
     jenkinsUrlProtocol: https
     jenkinsUrl: https://jenkins-staging.neikoscloud.net
 
-    containerEnv:
+    env:
       - name: GITHUB_CLIENT_ID
         valueFrom:
           secretKeyRef:
