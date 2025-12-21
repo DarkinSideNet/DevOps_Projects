@@ -26,11 +26,12 @@ jenkins:
             key: clientSecret
 
     JCasC:
-      defaultConfig: false
       configScripts:
-        jenkins-config: |
+        welcome-message: |
           jenkins:
             systemMessage: "Welcome to Jenkins Staging Server"
+        security: |
+          jenkins:
             securityRealm:
               github:
                 githubWebUri: "https://github.com"

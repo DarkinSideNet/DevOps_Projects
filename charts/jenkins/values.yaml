@@ -78,7 +78,6 @@ jenkins:
 
 
     JCasC:
-      defaultConfig: false
       configScripts:
 
         welcome-message: |
