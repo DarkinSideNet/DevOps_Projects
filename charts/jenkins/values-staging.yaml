@@ -26,6 +26,7 @@ jenkins:
             key: clientSecret
 
     JCasC:
+      defaultConfig: false
       configScripts:
         jenkins-config: |
           jenkins:
@@ -45,3 +46,23 @@ jenkins:
                 allowCcTrayPermission: false
                 allowGithubWebHookPermission: false
                 adminUserNames: "Lynrbe"
+
+        credentials-config: |
+          credentials:
+            system:
+              domainCredentials:
+                - credentials:
+                    - basicSSHUserPrivateKey:
+                        scope: GLOBAL
+                        id: "ssh-eks-key"
+                        description: "SSH key for EKS access"
+                        username: "${jenkins-ssh-eks-credential.username}"
+                        privateKeySource:
+                          directEntry:
+                            privateKey: "${jenkins-ssh-eks-credential.privateKey}"
+                    - aws:
+                        scope: GLOBAL
+                        id: "aws-credentials"
+                        description: "AWS Access Credentials"
+                        accessKey: "${AWS_ACCESS_KEY}"
+                        secretKey: "${AWS_SECRET_KEY}"
