@@ -13,17 +13,17 @@ jenkins:
     jenkinsUrlProtocol: https
     jenkinsUrl: https://jenkins-staging.neikoscloud.net
 
-    #containerEnv:
-    #   - name: GITHUB_CLIENT_ID
-    #     valueFrom:
-    #       secretKeyRef:
-    #         name: jenkins-staging-github-oauth-secret
-    #         key: clientId
-    #   - name: GITHUB_CLIENT_SECRET
-    #     valueFrom:
-    #       secretKeyRef:
-    #         name: jenkins-staging-github-oauth-secret
-    #         key: clientSecret
+    containerEnv:
+      - name: GITHUB_CLIENT_ID
+        valueFrom:
+          secretKeyRef:
+            name: jenkins-staging-github-oauth-secret
+            key: clientId
+      - name: GITHUB_CLIENT_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: jenkins-staging-github-oauth-secret
+            key: clientSecret
 
     JCasC:
       configScripts:

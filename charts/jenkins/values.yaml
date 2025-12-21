@@ -57,6 +57,7 @@ jenkins:
 
     # Cấu hình JCasC cơ bản
     JCasC:
+      defaultConfig: false
       configScripts:
         welcome-message: |
           jenkins:
