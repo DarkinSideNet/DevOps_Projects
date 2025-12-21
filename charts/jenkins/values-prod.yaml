@@ -17,7 +17,7 @@ externalSecrets:
     secretPath: "jenkins/aws/access"
   default:
     enabled: true
-    secretPath: "jenkins/default/admin"  # Production has different admin secret
+    secretPath: "jenkins/default/admin" # Production has different admin secret
 
 jenkins:
   persistence:
