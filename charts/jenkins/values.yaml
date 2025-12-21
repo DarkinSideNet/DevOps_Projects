@@ -108,10 +108,10 @@ jenkins:
     resources:
       requests:
         cpu: "500m"
-        memory: "2648Mi"
+        memory: "1024Mi"
       limits:
         cpu: "1000m"
-        memory: "5296Mi"
+        memory: "2048Mi"
 
     # Use ClusterIP since we're using Traefik Ingress (not NodePort)
     serviceType: ClusterIP
