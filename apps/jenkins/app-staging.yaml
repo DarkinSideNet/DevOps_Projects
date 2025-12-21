@@ -20,7 +20,7 @@ spec:
         requeueAfterSeconds: 1800 # 30 minutes
   template:
     metadata:
-      name: jenkins-staging-{.number}
+      name: jenkins-staging-{{.number}}
     spec:
       project: default
       source:
@@ -35,13 +35,10 @@ spec:
       destination:
         name: in-cluster
         namespace: jenkins-staging
-  syncPolicy:
-    # automated:
-    #   prune: true
-    #   selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-      - pruneOnDelete= true
-    automated:
-      prune: true
-      selfHeal: true
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
