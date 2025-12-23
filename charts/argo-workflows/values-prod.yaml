@@ -35,6 +35,9 @@ argo-workflows:
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
       hosts:
         - argo-workflows.neikoscloud.net
+      paths:
+        - /
+      pathType: Prefix
       tls:
         - secretName: argo-workflows-tls
           hosts:
