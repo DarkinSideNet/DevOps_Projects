@@ -34,9 +34,9 @@ backendStore:
   type: postgresql
   host: postgres-mlflow-postgresql
   port: 5432
-  database: mlflow
-  username: mlflow_user
-  password: "mlflowpassword123" 
+  database: postgres
+  username: postgres
+  password: "7cnLMl1CQT" 
 
 artifactStore:
   s3:
