@@ -1,22 +1,23 @@
----
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sweet500-prometheus-prod
+  name: prometheus
   namespace: argocd
 spec:
-  destination:
-    namespace: monitoring
-    name: in-cluster
-  project: sweet500
+  project: default
   source:
-    path: charts/monitoring/prometheus
     repoURL: https://github.com/DarkinSideNet/DevOps_Projects.git
     targetRevision: main
+    path: charts/monitoring/prometheus
     helm:
-      releaseName: prometheus-prod
       valueFiles:
         - values-prod.yaml
+  destination:
+    name: in-cluster
+    namespace: monitoring
   syncPolicy:
+    # automated:
+    #   prune: true
+    #   selfHeal: true
     syncOptions:
       - CreateNamespace=true

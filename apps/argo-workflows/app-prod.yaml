@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grafana
+  name: argo-workflows
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/DarkinSideNet/DevOps_Projects.git
     targetRevision: main
-    path: charts/monitoring/grafana
+    path: charts/argo-workflows
     helm:
       valueFiles:
         - values-prod.yaml
   destination:
     name: in-cluster
-    namespace: monitoring
+    namespace: argo-workflows
   syncPolicy:
     # automated:
     #   prune: true
