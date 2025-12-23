@@ -27,9 +27,9 @@ argo-workflows:
   # Server configuration
   server:
     enabled: true
-    # Use client authentication (secure)
+    # Use server authentication (bypass token validation)
     extraArgs:
-      - --auth-mode=client
+      - --auth-mode=server
     ingress:
       enabled: true
       ingressClassName: traefik
